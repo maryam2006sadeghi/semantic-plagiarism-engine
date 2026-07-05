@@ -1,0 +1,20 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Data folders
+data/raw/
+data/processed/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+
+#Outputs
+outputs/*.csv
+outputs/*.json
