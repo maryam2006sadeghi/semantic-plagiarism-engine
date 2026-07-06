@@ -6,9 +6,22 @@ class Dataset:
     def __init__(self, root_directory):
         self.root = Path(root_directory)
 
-        self.source_root = self.root / "external-detection-corpus" / "source-document"
-        self.suspicious_root = self.root / \
-            "external-detection-corpus" / "suspicious-document"
+        if (self.root / "external-detection-corpus").exists():
+            self.source_root = (
+                self.root /
+                "external-detection-corpus" /
+                "source-document"
+            )
+
+            self.suspicious_root = (
+                self.root /
+                "external-detection-corpus" /
+                "suspicious-document"
+            )
+
+        else:
+            self.source_root = self.root / "source"
+            self.suspicious_root = self.root / "suspicious"
 
         self.source_docs = {}
         self.suspicious_docs = {}
@@ -54,7 +67,10 @@ class Dataset:
             except ET.ParseError:
                 continue
 
-            suspicious_name = xml_file.stem
+            if "reference" in root.attrib:
+                suspicious_name = root.attrib["reference"]
+            else:
+                suspicious_name = xml_file.stem
             sources = set()
 
             for feature in root.iter("feature"):
