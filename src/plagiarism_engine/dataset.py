@@ -3,8 +3,12 @@ import xml.etree.ElementTree as ET
 
 
 class Dataset:
-    def init(self, root_directory):
+    def __init__(self, root_directory):
         self.root = Path(root_directory)
+
+        self.source_root = self.root / "external-detection-corpus" / "source-document"
+        self.suspicious_root = self.root / \
+            "external-detection-corpus" / "suspicious-document"
 
         self.source_docs = {}
         self.suspicious_docs = {}
@@ -16,12 +20,11 @@ class Dataset:
         self._load_ground_truth()
 
     def _load_source_documents(self):
-        source_root = (
-            self.root /
-            "/Users/maryam/Documents/semantic-plagiarism-engine/data/raw/pan-plagiarism-corpus-2011/pan-plagiarism-corpus-2011/external-detection-corpus/source-document"
-        )
+        if not self.source_root.exists():
+            raise FileNotFoundError(
+                f"Source directory not found at: {self.source_root}")
 
-        for txt_file in source_root.rglob("*.txt"):
+        for txt_file in self.source_root.rglob("*.txt"):
             with open(txt_file, "r", encoding="utf-8", errors="ignore") as f:
                 self.source_docs[txt_file.name] = {
                     "text": f.read(),
@@ -29,12 +32,11 @@ class Dataset:
                 }
 
     def _load_suspicious_documents(self):
-        suspicious_root = (
-            self.root /
-            "/Users/maryam/Documents/semantic-plagiarism-engine/data/raw/pan-plagiarism-corpus-2011/pan-plagiarism-corpus-2011/external-detection-corpus/suspicious-document"
-        )
+        if not self.suspicious_root.exists():
+            raise FileNotFoundError(
+                f"Suspicious directory not found at: {self.suspicious_root}")
 
-        for txt_file in suspicious_root.rglob("*.txt"):
+        for txt_file in self.suspicious_root.rglob("*.txt"):
             with open(txt_file, "r", encoding="utf-8", errors="ignore") as f:
                 self.suspicious_docs[txt_file.name] = {
                     "text": f.read(),
@@ -42,29 +44,32 @@ class Dataset:
                 }
 
     def _load_ground_truth(self):
-        suspicious_root = (
-            self.root /
-            "/Users/maryam/Documents/semantic-plagiarism-engine/data/raw/pan-plagiarism-corpus-2011/pan-plagiarism-corpus-2011/external-detection-corpus/suspicious-document"
-        )
+        for xml_file in self.suspicious_root.rglob("*.xml"):
 
-        for xml_file in suspicious_root.rglob("*.xml"):
+            try:
 
-            tree = ET.parse(xml_file)
-            root = tree.getroot()
+                tree = ET.parse(xml_file)
+                root = tree.getroot()
 
-            suspicious_name = root.attrib["reference"]
+            except ET.ParseError:
+                continue
 
+            suspicious_name = xml_file.stem
             sources = set()
 
-            for feature in root.findall("feature"):
+            for feature in root.iter("feature"):
 
-                if feature.attrib.get("name") != "plagiarism":
+                if feature.get("name") != "plagiarism":
                     continue
 
-                source = feature.attrib["source_reference"]
-                sources.add(source)
+                source = feature.get("source_reference")
 
-            self.ground_truth[suspicious_name] = sources
+                if source is not None:
+                    sources.add(
+                        source.replace(".txt", "")
+                    )
+            if sources:
+                self.ground_truth[suspicious_name] = sources
 
     def get_source_text(self, filename):
         return self.source_docs[filename]["text"]

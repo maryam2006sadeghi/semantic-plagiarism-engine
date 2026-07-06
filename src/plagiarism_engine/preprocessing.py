@@ -4,9 +4,27 @@ import nltk
 import os
 from typing import List, Set, Optional
 
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
-nltk.download('punkt_tab', quiet=True)
-nltk.download('stopwords', quiet=True)
+# ---------------------------- Download NLTK Resources ------------------------
+
+
+def download_nltk_resources():
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        nltk.download('punkt', quiet=True)
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        nltk.download('stopwords', quiet=True)
+
+
 STOPWORDS = set(nltk.corpus.stopwords.words('english'))
 
 
