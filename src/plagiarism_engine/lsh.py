@@ -1,8 +1,7 @@
 from dataclasses import dataclass
-from typing import List, Set, Tuple, Any, Dict, Optional, Callable
+from typing import List, Set, Tuple, Dict, Any, Optional
 from collections import defaultdict
 import random
-from evaluation import exact_jaccard
 
 
 @dataclass
@@ -10,19 +9,20 @@ class LSHConfig:
     signature_size: int = 128
     bands: int = 32
     rows: int = 4
-    hash_prime: int = 1000003
+    hash_prime: int = (2 ** 31) - 1
     seed: int = 42
 
     def __post_init__(self):
         if self.bands * self.rows != self.signature_size:
             raise ValueError(
-                f"bands ({self.bands}) * rows ({self.rows}) must equal "
-                f"signature_size ({self.signature_size})."
+                "bands × rows must equal signature_size."
             )
 
 
 class LSH:
-    def __init__(self, config: Optional[LSHConfig] = None):
+
+    def __init__(self,
+                 config: Optional[LSHConfig] = None):
         if config is None:
             config = LSHConfig()
 
@@ -32,123 +32,179 @@ class LSH:
         self.rows = config.rows
         self.hash_prime = config.hash_prime
 
-        rng = random.Random(config.seed)
-        self.a = [rng.randint(1, self.hash_prime - 1)
-                  for _ in range(self.rows)]
-        self.b = rng.randint(0, self.hash_prime - 1)
+        self._generate_hash_function()
 
-        self.buckets: List[Dict[int, Set[Any]]] = [
-            defaultdict(set) for _ in range(self.bands)
+        self.buckets = [
+            defaultdict(set)
+            for _ in range(self.bands)
         ]
 
-        self.candidate_pairs: Set[Tuple[Any, Any]] = set()
+        self.candidate_pairs = set()
 
-    def _get_band(self, signature: List[int], band_index: int) -> Tuple[int, ...]:
-        start = band_index * self.rows
-        end = start + self.rows
-        return tuple(signature[start:end])
+    def _generate_hash_function(self):
 
-    def _hash_band(self, band_tuple: Tuple[int, ...]) -> int:
+        rng = random.Random(self.config.seed)
+
+        self.a = [
+
+            rng.randint(
+                1,
+                self.hash_prime - 1
+            )
+
+            for _ in range(self.rows)
+
+        ]
+
+        self.b = rng.randint(
+            0,
+            self.hash_prime - 1
+        )
+
+    def _split_signature_into_bands(
+            self,
+            signature: List[int]
+    ) -> List[Tuple[int, ...]]:
+
+        if len(signature) != self.signature_size:
+            raise ValueError(
+                "Invalid signature length."
+            )
+
+        bands = []
+        for i in range(self.bands):
+            start = i * self.rows
+            end = start + self.rows
+            bands.append(
+                tuple(signature[start:end])
+            )
+
+        return bands
+
+    def _hash_band(
+            self,
+            band: Tuple[int, ...]
+    ) -> int:
+
         total = self.b
-        for i, val in enumerate(band_tuple):
-            total = (total + self.a[i] * val) % self.hash_prime
-        return total
+        for coeff, value in zip(self.a, band):
+            total += coeff * value
+        return total % self.hash_prime
 
-    def _get_bucket_key(self, band_tuple: Tuple[int, ...]) -> int:
-        return self._hash_band(band_tuple)
+    def _insert_into_bucket(
+            self,
+            band_index: int,
+            bucket_key: int,
+            document_id: Any
+    ):
 
-    def index(self, document_id: Any, signature: List[int]) -> None:
-        if len(signature) != self.signature_size:
-            raise ValueError(
-                f"Invalid signature length. Expected {self.signature_size}, "
-                f"got {len(signature)}."
+        self.buckets[band_index][bucket_key].add(
+            document_id
+        )
+
+    def _detect_collisions(
+            self,
+            band_index: int,
+            bucket_key: int,
+            document_id: Any
+    ):
+
+        bucket = self.buckets[
+            band_index
+        ][bucket_key]
+
+        for other_doc in bucket:
+            if other_doc == document_id:
+                continue
+
+            pair = tuple(
+                sorted(
+                    (document_id,
+                     other_doc)
+                )
             )
 
-        for band_index in range(self.bands):
-            band_tuple = self._get_band(signature, band_index)
-            bucket_key = self._get_bucket_key(band_tuple)
-            bucket = self.buckets[band_index][bucket_key]
+            self.candidate_pairs.add(pair)
 
-            for existing_doc_id in bucket:
-                if existing_doc_id != document_id:
-                    pair = tuple(sorted((document_id, existing_doc_id)))
-                    self.candidate_pairs.add(pair)
+    def index(
+            self,
+            document_id: Any,
+            signature: List[int]
+    ):
 
-            bucket.add(document_id)
+        bands = self._split_signature_into_bands(
+            signature
+        )
 
-    def query(self, signature: List[int]) -> Set[Any]:
-        if len(signature) != self.signature_size:
-            raise ValueError(
-                f"Invalid signature length. Expected {self.signature_size}, "
-                f"got {len(signature)}."
+        for band_index, band in enumerate(bands):
+            bucket_key = self._hash_band(
+                band
             )
+            self._detect_collisions(
+                band_index,
+                bucket_key,
+                document_id
+            )
+            self._insert_into_bucket(
+                band_index,
+                bucket_key,
+                document_id
+            )
+
+    def query(
+            self,
+            signature: List[int]
+    ) -> Set[Any]:
 
         candidates = set()
 
-        for band_index in range(self.bands):
-            band_tuple = self._get_band(signature, band_index)
-            bucket_key = self._get_bucket_key(band_tuple)
+        bands = self._split_signature_into_bands(
+            signature
+        )
 
-            bucket = self.buckets[band_index].get(bucket_key)
+        for band_index, band in enumerate(bands):
+            bucket_key = self._hash_band(
+                band
+            )
+            bucket = self.buckets[
+                band_index
+            ].get(bucket_key)
+
             if bucket is not None:
                 candidates.update(bucket)
 
         return candidates
 
-    def get_true_duplicates(
-        self,
-        all_shingles: Dict[Any, Set[str]],
-        threshold: float = 0.5,
+    def verify_candidates(
+            self,
+            shingles: Dict[Any, Set[str]],
+            threshold: Optional[float] = None
     ) -> Set[Tuple[Any, Any]]:
 
-        true_duplicates = set()
+        if threshold is None:
+            threshold = (1 / self.bands) ** (1 / self.rows)
 
-        for doc_a, doc_b in self.candidate_pairs:
-            sim = exact_jaccard(
-                all_shingles[doc_a],
-                all_shingles[doc_b]
-            )
+        duplicates = set()
+
+        for doc1, doc2 in self.candidate_pairs:
+            sim = len(shingles[doc1].intersection(
+                shingles[doc2])) / len(shingles[doc1].union(
+                    shingles[doc2]))
+
             if sim >= threshold:
-                true_duplicates.add((doc_a, doc_b))
+                duplicates.add(
+                    (doc1, doc2)
+                )
 
-        return true_duplicates
+        return duplicates
 
     def get_candidate_pairs(self) -> Set[Tuple[Any, Any]]:
         return self.candidate_pairs
 
-    def clear(self) -> None:
-        self.buckets = [defaultdict(set) for _ in range(self.bands)]
+    def clear(self):
+        self.buckets = [
+            defaultdict(set)
+            for _ in range(self.bands)
+        ]
+
         self.candidate_pairs.clear()
-
-
-# ===========================
-# بخش تست
-# ===========================
-if __name__ == "__main__":
-    print("=" * 60)
-    print("Testing LSH implementation (Linear Hashing - PDF method)")
-    print("=" * 60)
-
-    # ====== تست 1: مثال ساده از PDF ======
-    print("\n1. Testing banding with a simple example (based on PDF Page 50):")
-    print("   Using signature_size=4, bands=2, rows=2")
-
-    lsh = LSH(LSHConfig(
-        signature_size=4,
-        bands=2,
-        rows=2
-    ))
-
-    # امضاهای مشابه (S1 و S2)
-    sig1 = [1, 1, 2, 1]   # S1
-    sig2 = [1, 0, 2, 1]   # S2 (با S1 در باند 2 مشابه است؟)
-    sig3 = [2, 0, 3, 1]   # S3 (متفاوت)
-
-    lsh.index("S1", sig1)
-    lsh.index("S2", sig2)
-    lsh.index("S3", sig3)
-
-    print(f"   Candidate pairs: {lsh.get_candidate_pairs()}")
-    # خروجی مورد انتظار: {('S1', 'S2')} چون در باند 2 با هم مشابه هستند
-
-    print("\n✅ All tests passed!")
