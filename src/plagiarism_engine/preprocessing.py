@@ -1,7 +1,6 @@
 import re
 import ssl
 import nltk
-import os
 from typing import List, Set, Optional
 
 try:
@@ -10,8 +9,6 @@ except AttributeError:
     pass
 else:
     ssl._create_default_https_context = _create_unverified_https_context
-
-# ---------------------------- Download NLTK Resources ------------------------
 
 
 def download_nltk_resources():
@@ -79,26 +76,44 @@ def generate_char_shingles(text: str, k: int) -> Set[str]:
     return {text[i:i+k] for i in range(len(text) - k + 1)}
 
 
-def preprocess_document(text: str, k: int = 3) -> Set[str]:
+def preprocess_text(
+    text: str,
+    remove_stopwords_flag: bool = True,
+    stem_flag: bool = True
+) -> List[str]:
     if not text or len(text.strip()) < 3:
-        return set()
+        return []
 
     if not is_english_text(text):
-        return set()
+        return []
 
     cleaned = clean_text(text)
     if not cleaned:
-        return set()
+        return []
 
     tokens = tokenize(cleaned)
     if not tokens:
-        return set()
+        return []
 
-    tokens = remove_stopwords(tokens)
+    if remove_stopwords_flag:
+        tokens = remove_stopwords(tokens)
+        if not tokens:
+            return []
+
+    if stem_flag:
+        from nltk.stem import PorterStemmer
+        stemmer = PorterStemmer()
+        tokens = [stemmer.stem(t) for t in tokens]
+
+    return tokens
+
+
+def shingle_preprocess(tokens: List[str], k: int = 3) -> Set[str]:
     if not tokens:
         return set()
 
     if len(tokens) >= k:
         return generate_word_shingles(tokens, k)
     else:
-        return generate_char_shingles(cleaned, k)
+        text_for_fallback = " ".join(tokens)
+        return generate_char_shingles(text_for_fallback, k)
