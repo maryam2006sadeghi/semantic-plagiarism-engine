@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document03540.txt">
+  <feature name="about" authors="Disraeli, Benjamin, Earl of Beaconsfield" title="Sybil, or the Two Nations" lang="en" />
+  <feature name="md5Hash" value="b3dd0ac94fc1a6b5b4a4949e9586b4f5" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="57679" this_length="20355" source_reference="source-document05496.txt" source_language="en" source_offset="106548" source_length="22012" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="146050" this_length="1467" source_reference="source-document02136.txt" source_language="en" source_offset="641" source_length="1517" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="156389" this_length="2688" source_reference="source-document03886.txt" source_language="en" source_offset="5742" source_length="2759" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="305578" this_length="9969" source_reference="source-document05233.txt" source_language="en" source_offset="8907" source_length="23768" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="323067" this_length="14643" source_reference="source-document05496.txt" source_language="en" source_offset="179522" source_length="15322" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="424127" this_length="18997" source_reference="source-document05496.txt" source_language="en" source_offset="72453" source_length="19890" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="552209" this_length="3573" source_reference="source-document05496.txt" source_language="en" source_offset="53771" source_length="3515" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="589155" this_length="17987" source_reference="source-document05496.txt" source_language="en" source_offset="20027" source_length="19251" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="719609" this_length="16624" source_reference="source-document05496.txt" source_language="en" source_offset="136708" source_length="16999" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="818291" this_length="1498" source_reference="source-document02136.txt" source_language="en" source_offset="13439" source_length="1471" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="836112" this_length="2072" source_reference="source-document03886.txt" source_language="en" source_offset="3204" source_length="1982" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="855201" this_length="3709" source_reference="source-document05496.txt" source_language="en" source_offset="98719" source_length="3690" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="866234" this_length="265" source_reference="source-document04737.txt" source_language="en" source_offset="12645" source_length="273" />
+</document>
+

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document05934.txt">
+  <feature name="about" authors="Green, John Richard" title="History of the English People, Volume IV" lang="en" />
+  <feature name="md5Hash" value="8053be3410fe9fb1c3a6655c333418" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="2619" this_length="2426" source_reference="source-document06293.txt" source_language="en" source_offset="242" source_length="2445" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="75902" this_length="16732" source_reference="source-document03557.txt" source_language="en" source_offset="4273" source_length="18693" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="170302" this_length="6291" source_reference="source-document03715.txt" source_language="en" source_offset="2532" source_length="15318" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="255908" this_length="16830" source_reference="source-document09548.txt" source_language="en" source_offset="209356" source_length="18929" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="378640" this_length="1634" source_reference="source-document01453.txt" source_language="en" source_offset="1795" source_length="1515" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="392119" this_length="1573" source_reference="source-document03557.txt" source_language="en" source_offset="167" source_length="1701" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="461427" this_length="16181" source_reference="source-document01049.txt" source_language="en" source_offset="499333" source_length="15455" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="503933" this_length="461" source_reference="source-document09548.txt" source_language="en" source_offset="134613" source_length="497" />
+</document>
+
