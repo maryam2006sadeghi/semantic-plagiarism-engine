@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document10935.txt">
+  <feature name="about" authors="Lytton, Edward Bulwer Lytton, Baron" title="What Will He Do with It? — Volume 08" lang="en" />
+  <feature name="md5Hash" value="8ea71536693636bad5b1d7d94ff02ee9" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="1255" this_length="8413" source_reference="source-document10776.txt" source_language="en" source_offset="345420" source_length="18970" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="14699" this_length="250" source_reference="source-document10776.txt" source_language="en" source_offset="303730" source_length="247" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="15709" this_length="7096" source_reference="source-document10776.txt" source_language="en" source_offset="457029" source_length="15941" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="27543" this_length="16285" source_reference="source-document10776.txt" source_language="en" source_offset="23199" source_length="17443" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="56321" this_length="19036" source_reference="source-document10776.txt" source_language="en" source_offset="130278" source_length="21024" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="76414" this_length="16148" source_reference="source-document10776.txt" source_language="en" source_offset="67401" source_length="17976" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="98093" this_length="465" source_reference="source-document10776.txt" source_language="en" source_offset="283361" source_length="457" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="98824" this_length="739" source_reference="source-document10776.txt" source_language="en" source_offset="11644" source_length="724" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="99662" this_length="256" source_reference="source-document10776.txt" source_language="en" source_offset="414807" source_length="263" />
+</document>
+

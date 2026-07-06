@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document07101.txt">
+  <feature name="about" authors="Holmes, Oliver Wendell" title="The Poetical Works of Oliver Wendell Holmes — Volume 06: Poems from the Breakfast Table Series" lang="en" />
+  <feature name="md5Hash" value="c483657dbae49503d8cde90583072147" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="800" this_length="7809" source_reference="source-document10936.txt" source_language="en" source_offset="973" source_length="15443" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="10901" this_length="18054" source_reference="source-document07806.txt" source_language="en" source_offset="373554" source_length="19569" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="29863" this_length="1522" source_reference="source-document03290.txt" source_language="en" source_offset="12163" source_length="1673" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="31386" this_length="1581" source_reference="source-document03290.txt" source_language="en" source_offset="3642" source_length="1710" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="33275" this_length="735" source_reference="source-document10936.txt" source_language="en" source_offset="200" source_length="773" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="34011" this_length="708" source_reference="source-document03290.txt" source_language="en" source_offset="8293" source_length="753" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="34924" this_length="1467" source_reference="source-document03290.txt" source_language="en" source_offset="9046" source_length="1524" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="36392" this_length="248" source_reference="source-document03290.txt" source_language="en" source_offset="16851" source_length="266" />
+</document>
+

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document02541.txt">
+  <feature name="about" authors="Harris, William Shuler" title="Life in a Thousand Worlds" lang="en" />
+  <feature name="md5Hash" value="099d41078c228e52320a54eb29bd4f34" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="4420" this_length="14740" source_reference="source-document00544.txt" source_language="en" source_offset="179806" source_length="18970" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="19741" this_length="1537" source_reference="source-document00544.txt" source_language="en" source_offset="387633" source_length="1533" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="21619" this_length="16463" source_reference="source-document00544.txt" source_language="en" source_offset="255496" source_length="16717" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="42441" this_length="1992" source_reference="source-document00544.txt" source_language="en" source_offset="110622" source_length="2011" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="45167" this_length="3270" source_reference="source-document01066.txt" source_language="en" source_offset="4387" source_length="3242" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="49396" this_length="4710" source_reference="source-document00544.txt" source_language="en" source_offset="201550" source_length="4761" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="55231" this_length="12086" source_reference="source-document00544.txt" source_language="en" source_offset="334544" source_length="15243" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="72987" this_length="16326" source_reference="source-document00544.txt" source_language="en" source_offset="52040" source_length="16748" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="91266" this_length="2212" source_reference="source-document00544.txt" source_language="en" source_offset="146283" source_length="2262" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="98645" this_length="23668" source_reference="source-document00544.txt" source_language="en" source_offset="282608" source_length="24780" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="126771" this_length="18001" source_reference="source-document00544.txt" source_language="en" source_offset="354487" source_length="22192" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="147625" this_length="679" source_reference="source-document01066.txt" source_language="en" source_offset="138" source_length="710" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="152062" this_length="15968" source_reference="source-document00544.txt" source_language="en" source_offset="29289" source_length="15703" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="169301" this_length="20631" source_reference="source-document00544.txt" source_language="en" source_offset="223357" source_length="23218" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="196850" this_length="15731" source_reference="source-document00544.txt" source_language="en" source_offset="2353" source_length="19677" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="219775" this_length="18572" source_reference="source-document00544.txt" source_language="en" source_offset="78970" source_length="18287" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="242009" this_length="13842" source_reference="source-document00544.txt" source_language="en" source_offset="315486" source_length="18019" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="257005" this_length="737" source_reference="source-document01066.txt" source_language="en" source_offset="8294" source_length="740" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="257934" this_length="1464" source_reference="source-document00544.txt" source_language="en" source_offset="352136" source_length="1499" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="259936" this_length="2229" source_reference="source-document00544.txt" source_language="en" source_offset="136525" source_length="2247" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="263007" this_length="3495" source_reference="source-document00544.txt" source_language="en" source_offset="141208" source_length="3575" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="267460" this_length="3750" source_reference="source-document00544.txt" source_language="en" source_offset="130529" source_length="3814" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="271548" this_length="256" source_reference="source-document00544.txt" source_language="en" source_offset="154041" source_length="249" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="271926" this_length="837" source_reference="source-document01066.txt" source_language="en" source_offset="936" source_length="778" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="272764" this_length="276" source_reference="source-document00544.txt" source_language="en" source_offset="175660" source_length="240" />
+</document>
+

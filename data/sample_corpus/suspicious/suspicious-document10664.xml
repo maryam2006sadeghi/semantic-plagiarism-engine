@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document10664.txt">
+  <feature name="about" authors="Sepharial" title="Second Sight A study of Natural and Induced Clairvoyance" lang="en" />
+  <feature name="md5Hash" value="8f5e0dfa23edf02b3de862946565db4d" />
+  <feature name="plagiarism" type="translation" manual_obfuscation="true" this_language="en" this_offset="9981" this_length="2137" source_reference="source-document08977.txt" source_language="de" source_offset="183361" source_length="2069" />
+  <feature name="plagiarism" type="translation" manual_obfuscation="true" this_language="en" this_offset="22190" this_length="195" source_reference="source-document08977.txt" source_language="de" source_offset="26018" source_length="228" />
+</document>
+

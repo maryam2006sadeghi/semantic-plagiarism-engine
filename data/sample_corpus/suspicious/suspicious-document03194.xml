@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document03194.txt">
+  <feature name="about" authors="Twain, Mark" title="Sketches New and Old, Part 7." lang="en" />
+  <feature name="md5Hash" value="128fcbc039755e99394f4049db70bf3f" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="1338" this_length="7438" source_reference="source-document00438.txt" source_language="en" source_offset="5492" source_length="19019" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="11139" this_length="2014" source_reference="source-document00438.txt" source_language="en" source_offset="3298" source_length="2194" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="13863" this_length="2150" source_reference="source-document04258.txt" source_language="en" source_offset="21021" source_length="2284" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="16777" this_length="2218" source_reference="source-document07542.txt" source_language="en" source_offset="130894" source_length="3679" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="18996" this_length="467" source_reference="source-document00438.txt" source_language="en" source_offset="25308" source_length="472" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="19694" this_length="473" source_reference="source-document00438.txt" source_language="en" source_offset="25780" source_length="481" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="20168" this_length="255" source_reference="source-document00438.txt" source_language="en" source_offset="26261" source_length="246" />
+</document>
+

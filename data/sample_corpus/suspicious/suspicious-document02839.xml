@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document02839.txt">
+  <feature name="about" authors="Key, Ellen" title="The Education of the Child" lang="en" />
+  <feature name="md5Hash" value="95929f89fa160e77385cfa5781f20912" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="3375" this_length="3419" source_reference="source-document05734.txt" source_language="en" source_offset="13235" source_length="4487" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="34460" this_length="4033" source_reference="source-document05734.txt" source_language="en" source_offset="18230" source_length="4051" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="56681" this_length="529" source_reference="source-document05734.txt" source_language="en" source_offset="11755" source_length="515" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="69578" this_length="3703" source_reference="source-document05734.txt" source_language="en" source_offset="36115" source_length="3786" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="88889" this_length="2006" source_reference="source-document05734.txt" source_language="en" source_offset="43862" source_length="2002" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="99422" this_length="786" source_reference="source-document05734.txt" source_language="en" source_offset="3427" source_length="756" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="102481" this_length="251" source_reference="source-document05734.txt" source_language="en" source_offset="46451" source_length="250" />
+</document>
+

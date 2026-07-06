@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document01265.txt">
+  <feature name="about" authors="Turner, Frederick Jackson" title="The Character and Influence of the Indian Trade in Wisconsin" lang="en" />
+  <feature name="md5Hash" value="2875c04ca6f67faf8e283891414f335e" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="2465" this_length="255" source_reference="source-document00092.txt" source_language="en" source_offset="21897" source_length="253" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="8836" this_length="501" source_reference="source-document08134.txt" source_language="en" source_offset="314726" source_length="498" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="11593" this_length="507" source_reference="source-document00092.txt" source_language="en" source_offset="12825" source_length="490" />
+  <feature name="plagiarism" type="artificial" obfuscation="low" this_language="en" this_offset="12670" this_length="281" source_reference="source-document00092.txt" source_language="en" source_offset="21459" source_length="272" />
+</document>
+

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document reference="suspicious-document02623.txt">
+  <feature name="about" authors="Douglass, Frederick" title="Collected Articles of Frederick Douglass" lang="en" />
+  <feature name="md5Hash" value="1e0320a03f82a5226a5a0e9338e8595d" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="1235" this_length="7044" source_reference="source-document07004.txt" source_language="en" source_offset="831" source_length="16558" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="15928" this_length="262" source_reference="source-document06017.txt" source_language="en" source_offset="971" source_length="267" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="17447" this_length="2546" source_reference="source-document06017.txt" source_language="en" source_offset="1238" source_length="3073" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="20184" this_length="789" source_reference="source-document07004.txt" source_language="en" source_offset="35600" source_length="821" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="22227" this_length="3081" source_reference="source-document04359.txt" source_language="en" source_offset="1450" source_length="3186" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="25824" this_length="3702" source_reference="source-document04359.txt" source_language="en" source_offset="8182" source_length="3535" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="31917" this_length="2751" source_reference="source-document07004.txt" source_language="en" source_offset="294884" source_length="2727" />
+  <feature name="plagiarism" type="artificial" obfuscation="high" this_language="en" this_offset="35249" this_length="454" source_reference="source-document07004.txt" source_language="en" source_offset="184136" source_length="472" />
+</document>
+
