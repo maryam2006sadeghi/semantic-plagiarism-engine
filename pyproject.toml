@@ -32,8 +32,6 @@ classifiers = [
 dependencies = [
     "numpy",
     "nltk",
-    "scikit-learn",
-    "tqdm",
     "pytest"
 ]
 
