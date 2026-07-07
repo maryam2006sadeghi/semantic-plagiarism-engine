@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "plagiarism-engine"
+version = "1.0.0"
+description = "Semantic Plagiarism Detection Engine using MinHash, SimHash and LSH"
+readme = "README.md"
+requires-python = ">=3.10"
+
+authors = [
+    { name = "Maryam and Shirin" }
+]
+
+keywords = [
+    "plagiarism",
+    "nlp",
+    "minhash",
+    "simhash",
+    "lsh",
+    "information-retrieval"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "numpy",
+    "nltk",
+    "scikit-learn",
+    "tqdm",
+    "pytest"
+]
+
+
+[project.scripts]
+plagiarism-engine = "plagiarism_engine.cli:main"
+
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+
+testpaths = [
+    "tests"
+]
+
+python_files = [
+    "test_*.py"
+]
+
+addopts = "-v"
+
+
+[tool.black]
+line-length = 88
+
+
+[tool.isort]
+profile = "black"
+
+
+[tool.ruff]
+line-length = 88
